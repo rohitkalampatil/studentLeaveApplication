@@ -1,0 +1,71 @@
+create database studentapp;
+create table hod(hodname varchar(30),userid varchar(30) primary key,password varchar(30),branch varchar(30));
+create table student(name varchar(30),rollno int,prn int primary key,contact bigint,branch varchar(30),year varchar(30),semail varchar(80),
+password varchar(30),rdate varchar(30));
+mysql> use studentapp;
+Database changed
+mysql> desc hod;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| hodname  | varchar(30) | YES  |     | NULL    |       |
+| userid   | varchar(12) | NO   | PRI | NULL    |       |
+| password | varchar(10) | YES  |     | NULL    |       |
+| branch   | varchar(30) | YES  |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+4 rows in set (0.05 sec)
+
+mysql> desc student;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| name     | varchar(30) | YES  |     | NULL    |       |
+| rollno   | int(11)     | YES  |     | NULL    |       |
+| prn      | int(11)     | NO   | PRI | 0       |       |
+| contact  | mediumtext  | YES  |     | NULL    |       |
+| branch   | varchar(30) | YES  |     | NULL    |       |
+| year     | varchar(30) | YES  |     | NULL    |       |
+| semail   | varchar(80) | YES  |     | NULL    |       |
+| password | varchar(30) | YES  |     | NULL    |       |
+| rdate    | varchar(30) | YES  |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+9 rows in set (0.00 sec)
+create table leaveapplications(name varchar(30),rollno int,contact bigint,reason varchar(150),status varchar(30),applicationid int primary key,branch varchar(10));
+mysql> desc leaveapplications;
++---------------+--------------+------+-----+---------+-------+
+| Field         | Type         | Null | Key | Default | Extra |
++---------------+--------------+------+-----+---------+-------+
+| name          | varchar(30)  | YES  |     | NULL    |       |
+| rollno        | int(11)      | YES  |     | NULL    |       |
+| contact       | mediumtext   | YES  |     | NULL    |       |
+| reason        | varchar(150) | YES  |     | NULL    |       |
+| status        | varchar(10)  | YES  |     | NULL    |       |
+| applicationid | int(11)      | NO   | PRI | NULL    |       |
+| branch        | varchar(10)  | YES  |     | NULL    |       |
++---------------+--------------+------+-----+---------+-------+
+7 rows in set (0.01 sec)
+
+mysql> select * from hod;
++---------------+--------+----------+--------+
+| hodname       | userid | password | branch |
++---------------+--------+----------+--------+
+| mahadev dhere | md     | asdasd   | cse    |
+| rohit kalam   | rohit  | asdasd   | bsc    |
++---------------+--------+----------+--------+
+2 rows in set (0.00 sec)
+
+mysql> select * from student;
++---------------------+--------+--------+------------+--------+-------------+---------------------------+----------+------------+
+| name                | rollno | prn    | contact    | branch | year        | semail                    | password | rdate      |
++---------------------+--------+--------+------------+--------+-------------+---------------------------+----------+------------+
+| jyoti sherkar Patil |      1 | 202301 | 8830680081 | cse    | Third Year  | jsp@gmail.com             | asd      | 2023-05-05 |
+| mahadev dhere       |      2 | 202302 | 8080076680 | cse    | Third Year  | md@gmail.com              | asdasd   | 2023-05-05 |
+| rohit kalam         |      3 | 202303 | 7887975647 | bsc    | Second Year | rohitkalampatil@gmail.com | asdasd   | 2023-05-05 |
+| harish thorat       |      4 | 202304 | 8787878787 | bsc    | Third Year  | ht@gmail.com              | asdasd   | 2023-05-05 |
++---------------------+--------+--------+------------+--------+-------------+---------------------------+----------+------------+
+4 rows in set (0.00 sec)
+
+mysql> select * from leaveapplications;
+Empty set (0.00 sec)
+
+mysql>
